@@ -17,7 +17,7 @@ socket.on('message', function (message, remote) {
 
 function sendMessageToS () {
 	var serverPort = 33333;
-	var serverHost = 'S.S.S.S';
+	var serverHost = '80.240.22.240';
 
 	var message = new Buffer('B');
 	socket.send(message, 0, message.length, serverPort, serverHost, function (err, nrOfBytesSent) {
@@ -31,7 +31,6 @@ sendMessageToS();
 
 var counter = 0;
 function sendMessageToA (address, port) {
-	console.log('sending UDP message to A:', address +':'+ port);
 	if(counter == 5) return;
 	var message = new Buffer(counter++ + ': Hello A!');
 	socket.send(message, 0, message.length, port, address, function (err, nrOfBytesSent) {
